@@ -26,6 +26,24 @@
 			// width: calc(#{(100% / 3)} - #{$gutter * 1});
 			margin: $gutter 0 0 $gutter;
 
+			&:first-of-type{
+				&:before{
+					top: 10px;
+				}
+			}
+
+			&:before{
+				content: '';
+				display: inline-block;
+				border-left: 1px solid #2b2b2b;
+				/* height: 100%; */
+				width: 10px;
+				position: absolute;
+				left: -30px;
+				top: -6em;
+				bottom: -6em;
+			}
+
 			> .image {
 				@include vendor('transition', 'transform #{$duration} #{$ease}');
 				position: relative;
@@ -109,6 +127,8 @@
 
 				h2 {
 					margin: 0;
+					font-size: 48px;
+					line-height: 1;
 				}
 
 				// .content {
@@ -214,7 +234,7 @@
 
 			article {
 				// width: calc(#{(100% / 3)} - #{$gutter * 1});
-				margin: $gutter 0 0 $gutter;
+				margin: $gutter 0 6em $gutter;
 			}
 		}
 
@@ -225,7 +245,7 @@
 
 			article {
 				// width: calc(#{(100% / 2)} - #{$gutter * 1});
-				margin: $gutter 0 0 $gutter;
+				margin: $gutter 0 6em $gutter;
 			}
 		}
 
@@ -236,7 +256,7 @@
 
 			article {
 				// width: calc(#{(100% / 2)} - #{$gutter * 1});
-				margin: $gutter 0 0 $gutter;
+				margin: $gutter 0 4em $gutter;
 
 				// &:hover {
 				// 	> .image {
@@ -258,3 +278,24 @@
 		}
 	}
 
+span.date{
+		color: #999;
+
+		&:before{
+			content: '';
+			display: inline-block;
+			position: absolute;
+			width: 21px;
+			height: 21px;
+			border: 3px solid #2b2b2b;
+			left: -40px;
+			border-radius: 50%;
+			top: 4px;
+			background-color: #2b2b2b;
+
+
+
+		}
+
+
+	}
