@@ -24,7 +24,7 @@
 			position: relative;
 			width: 100%;
 			// width: calc(#{(100% / 3)} - #{$gutter * 1});
-			margin: $gutter 0 0 $gutter;
+			margin: $gutter 0 5em $gutter;
 
 			&:first-of-type{
 				&:before{
@@ -129,6 +129,13 @@
 					margin: 0;
 					font-size: 48px;
 					line-height: 1;
+
+					@include breakpoint(small) {
+						font-size: 32px;
+					}
+					@include breakpoint(xsmall) {
+						font-size: 26px;
+					}	
 				}
 
 				// .content {
@@ -252,7 +259,7 @@
 		@include breakpoint(small) {
 			$gutter: _size(gutter) * 0.5;
 
-			margin: ($gutter * -1) 0 0 ($gutter * -1);
+			margin: ($gutter * -1) 0 0 1em;
 
 			article {
 				// width: calc(#{(100% / 2)} - #{$gutter * 1});
@@ -273,7 +280,7 @@
 
 			article {
 				width: 100%;
-				margin: $gutter 0 0 0;
+				margin: $gutter 0 3em 0;
 			}
 		}
 	}
@@ -296,6 +303,8 @@ span.date{
 
 
 		}
-
+		@include breakpoint(small) {
+			font-size: 0.9em;
+		}
 
 	}
