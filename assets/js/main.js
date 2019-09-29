@@ -194,6 +194,14 @@
 							$menu._hide();
 
 				});
+		//Homepage hero
+		if($('.homepage.hero').length){
+			console.log('yup has homepage hero');
+			// window.setInterval(function () {
+			// 	/// call your function here
+			// 	//console.log('check');
+			// }, 1000);
+		}
 
 	});
 

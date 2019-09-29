@@ -2,7 +2,7 @@
 
 {% for post in site.posts limit:site.front-page-posts %}
 	<article class="style{{ forloop.index | plus:1 }}">
-		
+		<span class="yin-yang"></span>
 		<span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
 		<a href="{{ post.url | prepend:site.baseurl | prepend:site.url }}">
 			<h2>{{ post.title }}</h2>
