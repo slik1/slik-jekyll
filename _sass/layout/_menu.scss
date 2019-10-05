@@ -155,6 +155,14 @@
 			@include vendor('pointer-events', 'none');
 			cursor: default;
 			opacity: 0.25;
+			> #main{
+				filter: blur(5px) brightness(2);
+				pointer-events: none;
+				user-select: none;
+				-webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+				transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+			}
+
 		}
 
 		#menu {
@@ -174,9 +182,9 @@
 
 
 
-$bar-width: 35px;
-$bar-height: 3px;
-$bar-spacing: 10px;
+$bar-width: 34px;
+$bar-height: 2px;
+$bar-spacing: 8px;
 
 
 .menu-wrapper {
@@ -191,9 +199,9 @@ $bar-spacing: 10px;
 	cursor: pointer;
 	z-index: 99999;
 	    z-index: 99999;
-    position: absolute;
+    position: fixed;
 	right: 54px;
-	top: 10px;
+	top: 25px;
 }
 
 
@@ -289,4 +297,12 @@ $bar-spacing: 10px;
 // 		}
 // 	}
 
+// }
+
+
+// body.blur #root > .container > * {
+//     filter: blur(5px) brightness(0.7);
+//     pointer-events: none;
+//     user-select: none;
+//     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 // }

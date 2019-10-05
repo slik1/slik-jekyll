@@ -5,7 +5,7 @@
 
 // Duration.
 	$duration: (
-		menu:				0.45s,
+		menu:				0.25s,
 		transition:			0.2s
 	);
 
@@ -17,7 +17,8 @@
 		element-margin:		2em,
 		gutter:				2.5em,
 		field-gutter:		2em,
-		inner:				660px,
+		inner:				950px,
+		inner-small:        660px,
 		menu:				22em
 	);
 
@@ -25,6 +26,7 @@
 	$font: (
 		family:				('Source Sans Pro', Helvetica, sans-serif),
 		family-fixed:		('Courier New', monospace),
+		sf-mono:            ('SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console', monospace),
 		weight:				300,
 		weight-bold:		900,
 		weight-bold-alt:	700,
@@ -34,15 +36,15 @@
 
 // Palette.
 	$palette: (
-		bg:					#191919,
+		bg:					#121C25,
 		bg-accent:			#000000,
-		bg-alt:				#1f0928,
-		fg:					#e7ebe2,
-		fg-accent:			#4cbb09,
-		fg-bold:            #4cbb09,
+		bg-alt:				#3B4143,
+		fg:					#C7CCC7,
+		fg-accent:			#F4F2E7,
+		fg-bold:            #ffffff,
 		border:				#c9c9c9,
 		border-bg:			rgba(144,144,144,0.075),
-		accent1:			#4cbb09,
+		accent1:			#00a4f0,
 		accent2:			#7ecaf6,
 		accent3:			#7bd0c1,
 		accent4:			#c75b9b,
