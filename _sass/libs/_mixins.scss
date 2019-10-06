@@ -54,3 +54,9 @@
 	@return url("data:image/svg+xml;charset=utf8,#{$svg}");
 
 }
+
+
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}

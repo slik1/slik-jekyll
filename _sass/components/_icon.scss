@@ -25,22 +25,23 @@
 				'border-color #{_duration(transition)} ease-in-out'
 			));
 			background-color: transparent;
-			border: solid 1px _palette(border);
+			border: solid 1px _palette(accent1);
 			border-radius: _size(border-radius);
 			width: 2.65em;
 			height: 2.65em;
 			display: inline-block;
 			text-align: center;
 			line-height: 2.65em;
-			color: inherit;
+			color: _palette(accent1);
 
 			&:before {
 				font-size: 1.1em;
 			}
 
 			&:hover {
-				color: _palette(accent1);
-				border-color: _palette(accent1);
+				color: _palette(accent2);
+				border-color: _palette(accent2);
+				@include background-opacity(_palette(accent1), 0.2);
 			}
 
 			&:active {

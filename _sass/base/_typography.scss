@@ -5,21 +5,20 @@
 ///
 
 /* Type */
-
 	body, input, select, textarea {
 		color: _palette(fg);
 		font-family: _font(family);
-		font-size: 16pt;
+		font-size: 12pt;
 		font-weight: _font(weight);
 		line-height: 1.75;
 
-		@include breakpoint(xlarge) {
-			font-size: 14pt;
-		}
+		// @include breakpoint(xlarge) {
+		// 	font-size: 12pt;
+		// }
 
-		@include breakpoint(large) {
-			font-size: 12pt;
-		}
+		// @include breakpoint(small) {
+		// 	font-size: 12pt;
+		// }
 	}
 
 	a {
@@ -28,12 +27,12 @@
 			'color #{_duration(transition)} ease'
 		));
 		text-decoration: none;
-		color: _palette(fg);
-		border-bottom: dotted 1px transparentize(_palette(fg), 0.5);
+		color: _palette(accent1);
+		
 
 		&:hover {
-			border-bottom-color: transparent;
-			color: _palette(accent1) !important;
+			
+			color: _palette(accent2) !important;
 		}
 	}
 
@@ -53,10 +52,11 @@
 	h1 {
 		font-size: 2.75em;
 		color: _palette(fg-bold);
-		font-weight: _font(weight-bold-alt);
+		font-weight: _font(weight-bold);
 		line-height: 1.1;
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
-		letter-spacing: _font(letter-spacing-alt);
+		letter-spacing: _font(letter-spacing);
+		text-transform: uppercase;
 
 		a {
 			color: inherit;

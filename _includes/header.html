@@ -1,9 +1,6 @@
 <!-- Wrapper -->
 
-<a href="#menu" class="menu-wrapper">
 
-	<div class="hamburger-menu"></div>
-</a>
 
 
 	<header id="header" class="site-header">
@@ -26,30 +23,23 @@
 	
 					</span> -->
 				<div class="title_container">
-					<span class="yin-yang"></span>
+					<!-- <span class="yin-yang"></span> -->
 					<span class="title">{{site.title}}</span>
 				</div>
 			</a>
-			<!-- Nav -->
-			<!-- <nav>
-					<ul>
-						<li><a href="#menu">Menu</a></li>
-					</ul>
-				</nav> -->
 	
-			<!-- <a href="#menu" class="menu-wrapper">
-					
-					<div class="hamburger-menu"></div>
-				</a> -->
-	
-		
+			<a href="#menu" class="menu-wrapper">
+				<div class="hamburger-menu"></div>
+			</a>
+
+			{% include menu.html %}
 	</header>
 
 <div id="wrapper">
 
 
 
-	{% include menu.html %}
+	
 
 	<!-- Main -->
 	<div id="main">

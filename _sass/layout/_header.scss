@@ -6,6 +6,23 @@
 
 /* Header */
 .hero{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	$duration: 0.5s;
+	$ease: 'ease';
+	
+	@include vendor('transition', (
+		'transform #{$duration} #{$ease}',
+		'opacity #{$duration} #{$ease}'
+	));
+
+	@include breakpoint(medium) {
+		font-size: 76%;
+	}
+	@include breakpoint(small) {
+		font-size: 58%;
+	}
 
 	.container{
 		display: flex;
@@ -13,13 +30,15 @@
 		margin-bottom: 2.3em;
 		justify-content: space-evenly;
 	}
+
 	h1{
-		font-size: 18px;
+		font-size: 1.3em;
 		margin-bottom: 0;
 		line-height: 2;
 		position: relative;
-		font-family: _font(sf-mono);
+		font-family: _font(secondary);
 		color: #00a4f0;
+		text-transform: none;
 		// &:after{
 		// 	content: '';
 		// 	display: inline-block;
@@ -33,24 +52,31 @@
 
 		// }
 
+
+
 	}
+
 	h2{
-		font-size: 65px;
-		font-weight: bold;
+		font-size: 3.8em;
+		font-weight: _font('weight-bold-alt');
 		color: #fff;
 		text-transform: none;
 		letter-spacing: 2px;
-		margin: 0;
-		line-height: 1.3;
+		margin-bottom: 0.4rem;
+		line-height: 1;
+
+
 	}
 	h3{
-		font-size: 65px;
-		font-weight: bold;
-		color: #adb6bf;
+		font-size: 3.8em;
+		font-weight: _font('weight-bold-alt');
+		color: _palette(fg);
 		text-transform: none;
 		letter-spacing: 2px;
 		margin-bottom: 2rem;
 		line-height: 1;
+
+
 	}
 	.sub-heading{
 		font-size: 36px;
@@ -61,9 +87,32 @@
 		border-left: 1px solid;
 	}
 
-	 margin-bottom: 10em;
+	p{
+		max-width: 500px;
+		font-size: 16px;
+		margin: 0;
+	}
+
+	 //margin-bottom: 10em;
 
 } 
+
+
+
+
+
+body.is-loading {
+
+	.hero{
+		@include vendor('transform', 'scale(0.9)');
+		opacity: 0;
+	}
+
+}
+
+
+
+
 	#header {
 		@include padding(5em, 0, (3em, 0, -5em, 0));
 
@@ -75,12 +124,10 @@
 			padding: 1em;
 			background-color: _palette(fg-accent) !important;
 
-			
-
 		}
 
 		&.site-header{
-			padding: 0 1.5rem;
+			
 			background-color: _palette(bg) !important;
 			position: fixed;
 			width: 100%;
@@ -88,24 +135,57 @@
     		height: 70px;
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
+			// -webkit-transition: all 0.15s ease-in-out;
+			// transition: all 0.15s ease-in-out;
+			//-webkit-transform: translate3d(0, 0, 0);
+			//transform: translate3d(0, 0, 0);
+			box-shadow: none;
 			
-			.inner{
-				@include vendor('display', 'flex');
-				@include vendor('align-items', 'center');
-				@include vendor('justify-content', 'space-between');
-				max-width: 100%;
+			-webkit-transform: translateY(0px);
+			transform: translateY(0px);
+			filter: none !important;
+			pointer-events: auto !important;
+			user-select: auto !important;
+			padding: 0 2.5em;
+			-webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+			transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+
+			@include breakpoint(small) {
+				$gutter: _size(gutter) * 0.5;
+				padding: 0 $gutter;
 			}
 
 			&.fixed{
 				box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -10px;
 			}
 
+
+			.inner{
+				// @include vendor('display', 'flex');
+				// @include vendor('align-items', 'flex-start');
+				// // @include vendor('justify-content', 'space-between');
+				// @include vendor('flex-direction', 'column');
+				max-width: 100%;
+				text-align: center;
+			}
+
+			&.fixed{
+				box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -10px;
+			}
+
+			&.hide-nav{
+				-webkit-transform: translateY(-100%);
+				transform: translateY(-100%);	
+			}
+
 		}
+
+
 
 		.logo {
 			display: block;
 			border-bottom: 0;
-			color: inherit;
 			font-weight: _font(weight-bold);
 			letter-spacing: _font(letter-spacing);
 			margin: 0;
@@ -132,10 +212,18 @@
 			.title_container{
 				display: flex;
 				align-items: center;
+				
 
 				.title{
-					margin-left: 1rem;
-					color: _palette(accent1);
+					
+					font-family: _font('secondary');
+					font-size: 1.8em;
+					font-weight: bold;
+					border: 2px solid;
+					display: inline-block;
+					line-height: 1.1;
+					padding: 5px 24px;
+					border-radius: 24px;
 				}
 
 			}
@@ -168,10 +256,15 @@
 						// background-color: transparentize(_palette(bg), 0.5);
 						border-radius: _size(border-radius);
 						border: 0;
-						font-size: 0.8em;
+						font-size: 1.4em;
 						font-weight: _font(weight-bold);
 						letter-spacing: _font(letter-spacing);
 						text-transform: uppercase;
+
+						@include breakpoint(small) {
+							font-size: 1.2em;
+						}
+
 					}
 
 					a[href="#menu"] {
@@ -225,8 +318,7 @@
 			@include padding(3em, 0, (1em, 0, -3em, 0));
 
 			nav {
-				right: 0.5em;
-				top: 0.5em;
+
 
 				ul {
 					li {

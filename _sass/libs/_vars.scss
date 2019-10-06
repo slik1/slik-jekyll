@@ -5,7 +5,7 @@
 
 // Duration.
 	$duration: (
-		menu:				0.25s,
+		menu:				0.2s,
 		transition:			0.2s
 	);
 
@@ -17,6 +17,7 @@
 		element-margin:		2em,
 		gutter:				2.5em,
 		field-gutter:		2em,
+		micro:              0.8em,
 		inner:				950px,
 		inner-small:        660px,
 		menu:				22em
@@ -24,28 +25,28 @@
 
 // Font.
 	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
+		family:				(Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif),
 		family-fixed:		('Courier New', monospace),
-		sf-mono:            ('SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console', monospace),
+		secondary:          ("SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace),
 		weight:				300,
 		weight-bold:		900,
 		weight-bold-alt:	700,
-		letter-spacing:		0.15em,
-		letter-spacing-alt:	-0.015em
+		letter-spacing:		0.10em,
+		letter-spacing-alt:	-0.015em,
 	);
 
 // Palette.
 	$palette: (
 		bg:					#121C25,
 		bg-accent:			#000000,
-		bg-alt:				#3B4143,
-		fg:					#C7CCC7,
+		bg-alt:				#38434d,
+		fg:					#8c97a3,
 		fg-accent:			#F4F2E7,
 		fg-bold:            #ffffff,
 		border:				#c9c9c9,
 		border-bg:			rgba(144,144,144,0.075),
 		accent1:			#00a4f0,
-		accent2:			#7ecaf6,
+		accent2:			#0283cd,
 		accent3:			#7bd0c1,
 		accent4:			#c75b9b,
 		accent5:			#ae85ca,

@@ -18,7 +18,7 @@
 
 		var	$window = $(window),
 			$body = $('body');
-
+			$hamburger = $('.hamburger-menu');
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
 
@@ -48,33 +48,76 @@
 
 
 
-		// Setup a timer
-		var timeout;
+		// // Setup a timer
+		// var timeout;
 
-		// Listen for resize events
-		window.addEventListener('scroll', function (event) {
+		// // Listen for resize events
+		// window.addEventListener('scroll', function (event) {
 
-			//console.log('no debounce');
+		// 	//console.log('no debounce');
 
-			// If there's a timer, cancel it
-			if (timeout) {
-				window.cancelAnimationFrame(timeout);
-			}
+		// 	// If there's a timer, cancel it
+		// 	if (timeout) {
+		// 		window.cancelAnimationFrame(timeout);
+		// 	}
 
-			// Setup the new requestAnimationFrame()
-			timeout = window.requestAnimationFrame(function () {
-				console.log($('body').scrollTop());
-				if ($('body').scrollTop() > window.top) {
-					$('.site-header').addClass('fixed');
-				} else {
-					$('.site-header').removeClass('fixed');
+		// 	// Setup the new requestAnimationFrame()
+		// 	timeout = window.requestAnimationFrame(function () {
+		// 		console.log($('body').scrollTop());
+		// 		if ($('body').scrollTop() > window.top) {
+		// 			$('.site-header').addClass('fixed');
+		// 		} else {
+		// 			$('.site-header').removeClass('fixed');
+		// 		}
+		// 		// Run our scroll functions
+		// 		console.log('debounced');
+
+		// 	});
+
+		// }, false);
+
+
+
+
+			var scrollTimeOut = true,
+			lastYPos = 0,
+			yPos = 0,
+			yPosDelta = 5,
+			nav = $('.site-header'),
+			navHeight = nav.outerHeight(),
+
+			setNavClass = function() {
+				scrollTimeOut = false;
+				yPos = $(window).scrollTop();
+
+				console.log(yPos);
+
+				if(yPos == 0){
+					nav.removeClass('fixed');
+				}else{
+					nav.addClass('fixed');
 				}
-				// Run our scroll functions
-				console.log('debounced');
 
+				if(Math.abs(lastYPos - yPos) >= yPosDelta) {
+					if (yPos > lastYPos && yPos > navHeight){
+						nav.addClass('hide-nav');
+					} else {
+						nav.removeClass('hide-nav');
+					}
+					lastYPos = yPos;
+				}
+			};
+
+			$(window).scroll(function(e){
+				scrollTimeOut = true;
 			});
 
-		}, false);
+			setInterval(function() {
+				if (scrollTimeOut) {
+					setNavClass();
+				}
+
+			}, 250);
 
 
 
@@ -176,28 +219,32 @@
 			};
 
 			$menu._show = function() {
-
+				
 				if ($menu._lock())
 					$body.addClass('is-menu-visible');
+					$hamburger.addClass('animate');
+					
 
 			};
 
 			$menu._hide = function() {
-
+				
 				if ($menu._lock())
 					$body.removeClass('is-menu-visible');
+					$hamburger.removeClass('animate');
 
 			};
 
 			$menu._toggle = function() {
-
+				
 				if ($menu._lock())
 					$body.toggleClass('is-menu-visible');
+					$hamburger.toggleClass('animate');
 
 			};
 
 			$menu
-				.appendTo($body)
+				//.appendTo($body)
 				.on('click', function(event) {
 					event.stopPropagation();
 				})
