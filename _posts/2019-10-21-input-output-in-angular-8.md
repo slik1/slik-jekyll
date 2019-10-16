@@ -5,6 +5,9 @@ date:   2019-10-16 10:21:00 -0400
 categories: jekyll update
 ---
 
+## @Input() example 
+
+
 {% highlight javascript %}
 ng g m parent
 ng g c parent
@@ -184,9 +187,8 @@ That's how an @Input() property works to pass data down into a child component
 
 
 
+## @Output() example 
 
-
----------------- @Output() example ---------------------------------------------------------------
 
 
 
@@ -289,4 +291,5 @@ childChanged(parentData: any){
 
 Boom! A very basic example of using @Input() and @Output() properties to pass data between parent and child components in Angular 8!
 
-
+The git repo for this project can be located at: 
+[https://github.com/slik1/angular-8-input-output-basics](https://github.com/slik1/angular-8-input-output-basics)
