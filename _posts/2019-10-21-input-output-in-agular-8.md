@@ -5,12 +5,16 @@ date:   2019-10-16 10:21:00 -0400
 categories: jekyll update
 ---
 
-
-
+{% highlight javascript %}
+ng g m parent
+ng g c parent
+ng g c parent/child
+{% endhighlight %}
 
 ng g m parent (generates a new module called parent in a folder called /parent/)
 ng g c parent (generates a new component called parent in the already created folder /parent/)
 ng g c parent/child (generates a new component called child in the /parent/child/ folder)
+
 
 Now we have a parent module and component, and a child component within the parent folder
 
@@ -20,6 +24,7 @@ Let's wire all this up!
 
 First let's add the new parent component to the exports array in the parent module so it is accessible to whichever component calls it! (parent.module.ts):
 
+{% highlight typescript %}
 @NgModule({
 	declarations: [ParentComponent, ChildComponent],
 	exports: [ParentComponent],
@@ -27,6 +32,11 @@ First let's add the new parent component to the exports array in the parent modu
 		CommonModule
 	]
 })
+
+{% endhighlight %}
+
+
+
 
 
 
@@ -37,6 +47,7 @@ First let's add the new parent component to the exports array in the parent modu
 Next we want to tell our app module about our new parent module so let's edit app.module.ts:
 
 
+{% highlight typescript %}
 import { ParentModule } from './parent/parent.module';
 
 @NgModule({
@@ -53,6 +64,10 @@ import { ParentModule } from './parent/parent.module';
 })
 export class AppModule{ }
 
+{% endhighlight %}
+
+
+
 
 
 
@@ -63,7 +78,12 @@ export class AppModule{ }
 
 Next let's clear out the prepopulated data in the app.component.html file and only add the selector for our parent component:
 
+
+
+{% highlight html %}
 <app-parent></app-parent>
+{% endhighlight %}
+
 
 
 
@@ -77,6 +97,7 @@ Now when the app first loads, it will render the parent component
 
 Since our parent component will be the container and the boss of all the data for its child components, let's add some data to the parent component (parent.component.ts):
 
+{% highlight typescript %}
 export class ParentComponent implements OnInit{
 	
 	parentData: any;
@@ -92,6 +113,8 @@ export class ParentComponent implements OnInit{
 
 
 }
+{% endhighlight %}
+
 
 
 
@@ -105,7 +128,10 @@ Great, now we have some data to share with our child component!
 
 Let's add the child component selector to the parent template and give it an input property to pass the data from the parent into the child (parent.component.html):
 
+{% highlight html %}
 <app-child [parentData]="parentData"></app-child>
+{% endhighlight %}
+
 
 
 
@@ -116,7 +142,7 @@ Let's add the child component selector to the parent template and give it an inp
 
 Now we need to give the child component an input property so it can retrieve the data passed from the parent (child.component.ts):
 
-
+{% highlight typescript %}
 import { Component, OnInit, Input } from '@angular/core';
 
 export class ChildComponent implements OnInit {
@@ -124,14 +150,18 @@ export class ChildComponent implements OnInit {
 	@Input() parentData: any;
 
 }
+{% endhighlight %}
+
 
 
 
 
 Let's actually use some of the data to display in the child component by editing the child.component.html template:
-
+{% highlight html %}
 <h1>{{ parentData.name }}</h1>
 <p>{{ parentData.description }}</p>
+{% endhighlight %}
+
 
 
 
