@@ -196,7 +196,7 @@ Let's check out how to pass data back up from the child to the parent component 
 So first let's edit the child.component.ts file to give it an output property and assign that to an event emitter:
 
 
-
+{% highlight typescript %}
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export class ChildComponent implements OnInit {
@@ -213,6 +213,12 @@ export class ChildComponent implements OnInit {
 
 
 }
+{% endhighlight %}
+
+
+
+
+
 
 
 
@@ -229,10 +235,14 @@ So now, whenever the method emitData() is called from within the child.component
 
 Let's bind that very method to a button click within the child component. (child.component.html):
 
+{% highlight html %}
 <h1>{{ parentData.name }}</h1>
 <p>{{ parentData.description }}</p>
 
 <button (click)="emitData()">Change name</button>
+{% endhighlight %}
+
+
 
 
 
@@ -244,6 +254,7 @@ Let's bind that very method to a button click within the child component. (child
 
 And also update the parent.component.html to subscribe to the output property of the child component. Then we can see that data here will change from an output property change on the child component:
 
+{% highlight html %}
 This text is part of parent.component.html: <br>
 {{ parent.name }}
 
@@ -251,6 +262,10 @@ This text is part of parent.component.html: <br>
 
 This text is part of child.component.html: <br>
 <app-child [parentData]="parentData" (emitData)="childChanged($event)"></app-child>
+{% endhighlight %}
+
+
+
 
 So when the emitData function is fired on the child component, we call a function in the parent component to respond to the emitted event! We must pass in the $event object into the parent's function that is responding to the child event to get to the data emitted.
 
@@ -262,9 +277,14 @@ So when the emitData function is fired on the child component, we call a functio
 
 Update parent.component.ts to add the function to respond to the child event that is emitted:
 
+{% highlight typescript %}
 childChanged(parentData: any){
 	this.parentData = parentData;
 }
+{% endhighlight %}
+
+
+
 
 
 Boom! A very basic example of using @Input() and @Output() properties to pass data between parent and child components in Angular 8!
