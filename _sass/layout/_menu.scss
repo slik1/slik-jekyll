@@ -6,6 +6,10 @@
   padding-top: 7em;
 }
 
+#home #wrapper {
+  padding-top: 0px;
+}
+
 #menu {
   @include vendor('transform', 'translateX(#{_size(menu)})');
   @include vendor(
