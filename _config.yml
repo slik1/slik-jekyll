@@ -10,8 +10,8 @@
 title: G
 email: youremailaddress@gmail.com
 description: SLiK Blog
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+baseurl: '' # the subpath of your site, e.g. /blog
+url: '' # the base hostname & protocol for your site
 
 # Logo settings
 logo-image-url: images/logo.svg
@@ -19,15 +19,8 @@ font-awesome-icon-logo:
 
 front-page-posts: 2
 
-# Social settings
 linkedin_username: gary-saunders-sd
 github_username: slik1
-# twitter_username: andrewbanchich
-# facebook_URL: andrewbanchich
-# instagram_username: andrewbanchich
-# dribbble_username: andrewbanchich
-# 500px_username: andrewbanchich
-# phone: 555-5555
 
 # Build settings
 # Jekyll 3 now only supports Kramdown for Markdown
@@ -48,4 +41,4 @@ home-link-in-menu: yes
 plugins:
   - jekyll-paginate
 
-paginate:       5
+paginate: 5

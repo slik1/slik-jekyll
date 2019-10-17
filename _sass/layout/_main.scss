@@ -1,42 +1,34 @@
-///
-/// Phantom by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
-
 /* Main */
 
-	#main {
-		//@include padding(14em, 0, (-5em, 0, 3em, 0));
-		
-		@include breakpoint(small) {
-			//@include padding(12em, 0, (-3em, 0, 3em, 0));
-		}
-	}
+#main {
+  //@include padding(14em, 0, (-5em, 0, 3em, 0));
 
-	.pagination{
-		position: relative;
+  @include breakpoint(small) {
+    //@include padding(12em, 0, (-3em, 0, 3em, 0));
+  }
+}
 
-		.arrow{
-			position: absolute;
+.pagination {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 22px;
+  margin: 20px;
+  .arrow {
+    position: absolute;
 
-			&.left{
-				left: 0;
-			}
-			&.right{
-				right: 0;
-			}
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+  }
 
-		}
-
-
-		.top{
-			position: absolute;
-			left: 50%;
-			-webkit-transform: translateX(-50%);
-			transform: translateX(-50%);
-		}
-
-
-
-	}
+  .top {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
