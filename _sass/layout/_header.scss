@@ -90,8 +90,25 @@ body.is-loading {
   }
 }
 
+
+body.is-loading {
+  #header {
+    @include vendor('transform', 'scale(0.9)');
+    opacity: 0;
+  }
+}
+
 #header {
   @include padding(5em, 0, (3em, 0, -5em, 0));
+
+  $duration: 0.5s;
+  $ease: 'ease';
+
+  @include vendor(
+    'transition',
+    ('transform #{$duration} #{$ease}', 'opacity #{$duration} #{$ease}')
+  );
+
 
   &.hero {
     height: 100vh;

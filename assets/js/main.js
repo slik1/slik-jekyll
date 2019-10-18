@@ -1,4 +1,5 @@
 (function($) {
+  
   skel.breakpoints({
     xlarge: '(max-width: 1680px)',
     large: '(max-width: 1280px)',
@@ -19,47 +20,6 @@
         $body.removeClass('is-loading');
       }, 100);
     });
-
-    // var offset = $(".site-header").offset();
-    // //var sticky = document.getElementById("sticky-header")
-
-    // $window.scroll(function () {
-    // 	console.log(offset);
-    // 	if ($('body').scrollTop() > offset.top) {
-    // 		$('.site-header').addClass('fixed');
-    // 	} else {
-    // 		$('.site-header').removeClass('fixed');
-    // 	}
-
-    // });
-
-    // // Setup a timer
-    // var timeout;
-
-    // // Listen for resize events
-    // window.addEventListener('scroll', function (event) {
-
-    // 	//console.log('no debounce');
-
-    // 	// If there's a timer, cancel it
-    // 	if (timeout) {
-    // 		window.cancelAnimationFrame(timeout);
-    // 	}
-
-    // 	// Setup the new requestAnimationFrame()
-    // 	timeout = window.requestAnimationFrame(function () {
-    // 		console.log($('body').scrollTop());
-    // 		if ($('body').scrollTop() > window.top) {
-    // 			$('.site-header').addClass('fixed');
-    // 		} else {
-    // 			$('.site-header').removeClass('fixed');
-    // 		}
-    // 		// Run our scroll functions
-    // 		console.log('debounced');
-
-    // 	});
-
-    // }, false);
 
     var scrollTimeOut = true,
       lastYPos = 0,

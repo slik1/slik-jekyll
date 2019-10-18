@@ -139,13 +139,13 @@
 	}
 
 	code {
-		background: _palette(border-bg);
-		border-radius: _size(border-radius);
-		border: solid _size(border-width) _palette(border);
-		font-family: _font(family-fixed);
-		font-size: 0.9em;
-		margin: 0 0.25em;
-		padding: 0.25em 0.65em;
+		// background: _palette(border-bg);
+		
+		// border: solid _size(border-width) _palette(border);
+		// font-family: _font(family-fixed);
+		// font-size: 0.9em;
+		// margin: 0 0.25em;
+		// padding: 0.25em 0.65em;
 	}
 
 	pre {
@@ -153,7 +153,7 @@
 		font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0 _size(element-margin) 0;
-
+		border-radius: _size(border-radius);
 		code {
 			display: block;
 			line-height: 1.75;
