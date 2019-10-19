@@ -4,7 +4,7 @@
   $gutter: _size(gutter);
 
   //@include padding(5em, 0, (0, 0, 3em, 0));
-  padding: 2em 0 1em 0;
+  padding: 2em;
   background-color: _palette(bg-alt);
 
   > .inner {
@@ -17,8 +17,13 @@
     }
 
     section:nth-child(1) {
-      width: calc(66% - #{$gutter});
-      margin-right: $gutter;
+      width: 100%;
+      @include vendor('display', 'flex');
+      @include vendor('align-items', 'center');
+      @include vendor('justify-content', 'center');
+      h2{
+        margin: 0 2em 0 0;
+      }
     }
 
     section:nth-child(2) {
