@@ -1,6 +1,6 @@
-/* Tiles */
+/* entries */
 
-.tiles {
+.entries {
   $gutter: _size(gutter);
   $duration: 0.5s;
   $ease: 'ease';
@@ -8,7 +8,7 @@
   @include vendor('display', 'flex');
   @include vendor('flex-wrap', 'wrap');
   position: relative;
-  margin: 0;
+  margin: 3em 0;
 
   article {
     @include vendor(
@@ -127,8 +127,8 @@
 
       h2 {
         margin: 0 0 0.4em 0;
-        font-size: 48px;
-        line-height: 1;
+        font-size: 2em;
+        line-height: 1.2;
         max-width: 570px;
 
         @include breakpoint(small) {

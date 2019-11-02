@@ -46,13 +46,13 @@
 	}
 
 	h1 {
-		font-size: 2.75em;
+		font-size: 2.5em;
 		color: _palette(fg-bold);
-		font-weight: _font(weight-bold);
+		font-weight: 700;
 		line-height: 1.1;
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 		letter-spacing: _font(letter-spacing);
-		text-transform: uppercase;
+		text-transform: none;
 
 		a {
 			color: inherit;
@@ -70,10 +70,10 @@
 
 	h2, h3, h4, h5, h6 {
 		color: _palette(fg-bold);
-		font-weight: _font(weight-bold);
+		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 (_size(element-margin) * 1) 0;
-		text-transform: uppercase;
+		text-transform: none;
 		letter-spacing: _font(letter-spacing);
 
 		a {

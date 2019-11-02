@@ -1,12 +1,19 @@
 ---
 layout: post
-title:  "Parent/Child and Input/Output demonstration in Angular 8"
+title:  "@Input() and @Output() in Angular 8"
 date:   2019-10-16 10:21:00 -0400
-categories: jekyll update
+categories: angular-8
 ---
+
+Let's run through a little demo to illustrate how the container/presentation pattern works in Angular using the @Input() and @Output() properties.
+
+<br>
 
 ## @Input() example 
 
+
+
+First let's generate some angular goodies (you will need the Angular CLI installed)
 
 {% highlight javascript %}
 ng g m parent
@@ -14,9 +21,21 @@ ng g c parent
 ng g c parent/child
 {% endhighlight %}
 
-ng g m parent (generates a new module called parent in a folder called /parent/)
-ng g c parent (generates a new component called parent in the already created folder /parent/)
-ng g c parent/child (generates a new component called child in the /parent/child/ folder)
+This will generate 3 things: a new module called parent, a new component called parent, and a new component in the `parent` folder called child.
+
+
+<h3>Explanation</h3>
+<ul>
+<li>ng g m parent (generates a new module called parent in a folder called /parent/)</li>
+<li>ng g c parent (generates a new component called parent in the already created folder /parent/)</li>
+<li>ng g c parent/child (generates a new component called child in a /parent/child/ folder)</li>
+</ul>
+
+
+
+
+
+
 
 
 Now we have a parent module and component, and a child component within the parent folder
@@ -184,7 +203,7 @@ That's how an @Input() property works to pass data down into a child component
 
 
 
-
+<br>
 
 
 ## @Output() example 
@@ -237,9 +256,9 @@ So now, whenever the method emitData() is called from within the child.component
 
 Let's bind that very method to a button click within the child component. (child.component.html):
 
-{% highlight html %}
-<h1>{{ parentData.name }}</h1>
-<p>{{ parentData.description }}</p>
+{% highlight typescript %}
+<h1>{ { parentData.name } }</h1>
+<p>{ { parentData.description } }</p>
 
 <button (click)="emitData()">Change name</button>
 {% endhighlight %}
@@ -257,11 +276,10 @@ Let's bind that very method to a button click within the child component. (child
 And also update the parent.component.html to subscribe to the output property of the child component. Then we can see that data here will change from an output property change on the child component:
 
 {% highlight html %}
-This text is part of parent.component.html: <br>
-{{ parent.name }}
-
+This text is part of parent.component.html: 
 <br>
-
+{ { parent.name } }
+<br>
 This text is part of child.component.html: <br>
 <app-child [parentData]="parentData" (emitData)="childChanged($event)"></app-child>
 {% endhighlight %}

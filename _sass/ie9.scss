@@ -3,9 +3,9 @@
 @import 'libs/mixins';
 @import 'libs/skel';
 
-/* Tiles */
+/* entries */
 
-.tiles {
+.entries {
   &:after {
     content: '';
     display: block;

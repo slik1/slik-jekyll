@@ -2,7 +2,9 @@
 
 #footer {
   $gutter: _size(gutter);
-
+  margin-top: 2em;
+  display: inline-block;
+  width: 100%;
   //@include padding(5em, 0, (0, 0, 3em, 0));
   padding: 2em;
   background-color: _palette(bg-alt);
@@ -63,11 +65,12 @@
   @include breakpoint(large) {
     $gutter: _size(gutter) * 0.5;
 
-    @include padding(5em, 0);
+    //@include padding(5em, 0);
 
     > .inner {
       section:nth-child(1) {
-        width: calc(66% - #{$gutter});
+        // width: calc(66% - #{$gutter});
+        width: 100%;
         margin-right: $gutter;
       }
 
@@ -83,7 +86,8 @@
 
     > .inner {
       section:nth-child(1) {
-        width: 66%;
+        width: 100%;
+        // width: 66%;
         margin-right: 0;
       }
 
@@ -95,7 +99,7 @@
   }
 
   @include breakpoint(small) {
-    @include padding(3em, 0);
+    //@include padding(3em, 0);
 
     > .inner {
       @include vendor('flex-direction', 'column');
@@ -103,7 +107,7 @@
       section:nth-child(1) {
         width: 100%;
         margin-right: 0;
-        margin: 3em 0 0 0;
+        //margin: 3em 0 0 0;
       }
 
       section:nth-child(2) {

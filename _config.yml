@@ -19,6 +19,8 @@ font-awesome-icon-logo:
 
 front-page-posts: 2
 
+permalink: /:categories/:year/:month/:day/:title:output_ext
+
 linkedin_username: gary-saunders-sd
 github_username: slik1
 
@@ -41,4 +43,4 @@ home-link-in-menu: yes
 plugins:
   - jekyll-paginate
 
-paginate: 5
+paginate: 3

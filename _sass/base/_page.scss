@@ -36,3 +36,24 @@
 			}
 
 	}
+
+	img.about{
+		-webkit-filter: grayscale(1);
+		filter: grayscale(1);
+	}
+
+	h1.page_title {
+		text-transform: uppercase;
+
+		&:after{
+			content: '';
+			display: inline-block;
+			width: 385px;
+			height: 1px;
+			border-top: 1px solid #00a4f0;
+			position: relative;
+			top: -15px;
+			left: 4px;	
+		}
+
+	}
