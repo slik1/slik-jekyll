@@ -179,9 +179,10 @@ export class ChildComponent implements OnInit {
 
 
 Let's actually use some of the data to display in the child component by editing the child.component.html template:
-{% highlight html %}
+{% highlight html %}{% raw %}
 <h1>{{ parentData.name }}</h1>
 <p>{{ parentData.description }}</p>
+{% endraw %}
 {% endhighlight %}
 
 
@@ -256,11 +257,12 @@ So now, whenever the method emitData() is called from within the child.component
 
 Let's bind that very method to a button click within the child component. (child.component.html):
 
-{% highlight typescript %}
-<h1>{ { parentData.name } }</h1>
-<p>{ { parentData.description } }</p>
+{% highlight html %}{% raw %}
+<h1>{{ parentData.name }}</h1>
+<p>{{ parentData.description }}</p>
 
 <button (click)="emitData()">Change name</button>
+{% endraw %}
 {% endhighlight %}
 
 

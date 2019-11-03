@@ -18,3 +18,12 @@
     }
   }
 }
+
+
+body#home #wrapper{
+  > * {
+    > .inner {
+      max-width: _size(home-inner);
+    }
+  }
+}

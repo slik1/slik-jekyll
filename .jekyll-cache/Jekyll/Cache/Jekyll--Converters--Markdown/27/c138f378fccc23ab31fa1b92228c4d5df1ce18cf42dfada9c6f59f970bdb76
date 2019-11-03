@@ -1,4 +1,4 @@
-I"%3<p>Let’s run through a little demo to illustrate how the container/presentation pattern works in Angular using the @Input() and @Output() properties.</p>
+I"�0<p>Let’s run through a little demo to illustrate how the container/presentation pattern works in Angular using the @Input() and @Output() properties.</p>
 
 <p><br /></p>
 
@@ -93,8 +93,8 @@
 
 <p>Let’s actually use some of the data to display in the child component by editing the child.component.html template:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
-<span class="nt">&lt;p&gt;&lt;/p&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>{{ parentData.name }}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ parentData.description }}<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p>So now if we save and load the page, we will see the data passed from the parent to the child and rendering in the child.component.html file!</p>
 
@@ -131,10 +131,10 @@
 
 <p>Let’s bind that very method to a button click within the child component. (child.component.html):</p>
 
-<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span> <span class="p">{</span> <span class="nx">parentData</span><span class="p">.</span><span class="nx">name</span> <span class="p">}</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
-</span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span> <span class="p">{</span> <span class="nx">parentData</span><span class="p">.</span><span class="nx">description</span> <span class="p">}</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
-</span>
-<span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="dl">"</span><span class="s2">emitData()</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Change</span> <span class="nx">name</span><span class="o">&lt;</span><span class="sr">/button&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>{{ parentData.name }}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ parentData.description }}<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">(click)=</span><span class="s">"emitData()"</span><span class="nt">&gt;</span>Change name<span class="nt">&lt;/button&gt;</span></code></pre></figure>
 
 <p>And also update the parent.component.html to subscribe to the output property of the child component. Then we can see that data here will change from an output property change on the child component:</p>
 

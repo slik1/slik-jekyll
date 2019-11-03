@@ -17,6 +17,7 @@
     );
     position: relative;
     width: 100%;
+    // max-width: _size(inner);
     max-width: 570px;
     // width: calc(#{(100% / 3)} - #{$gutter * 1});
     margin: $gutter 0 5em 0;

@@ -5,7 +5,7 @@ date:   2019-10-28 12:12:00 -0400
 categories: fabric.js JavaScript
 ---
 
-I started looking into Fabric.js awhile ago as a solution for an app to allow for plotting points onto a user submitted image. After researching the topic, it seems to be the best solution for easily manipulating canvas and its objects. I wanted to document some of my notes while researching the documentation ( most of the following information can be found on the <a href="http://fabricjs.com">fabric.js website</a> )
+I started looking into Fabric.js awhile ago as a solution for a web app to allow plotting points onto a user-submitted image. After researching the topic, it seems to be the best solution for easily manipulating an HTML5 canvas element, and things drawn onto it, in an object-oriented way. I wanted to document some of my notes while researching the documentation ( much of the following information can be found on the <a href="http://fabricjs.com">fabric.js website</a> )
 
 <h2>So what is Fabric.js? </h2>
 
@@ -90,7 +90,7 @@ rect.someMethod();
 
 We create a new canvas instance with <code>var canvas = new fabric.Canvas('c');</code> where the <code>('c')</code> refers to the DOM canvas element's ID.
 
-The <code>fabric.Canvas</code> serves as a wrapper around the <code><canvas></code> element and is responsible for managing all of the fabric objects on that particular canvas.
+The <code>fabric.Canvas</code> serves as a wrapper around the <code>&lt;canvas&gt;</code> element and is responsible for managing all of the fabric objects on that particular canvas.
 
 
 

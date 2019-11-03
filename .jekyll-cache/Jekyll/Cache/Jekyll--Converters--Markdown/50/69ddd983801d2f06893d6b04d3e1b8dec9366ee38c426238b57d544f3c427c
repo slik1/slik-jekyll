@@ -1,0 +1,2 @@
+I"á<p>I started looking into Fabric.js awhile ago as a solution for a web app to allow plotting points onto a user-submitted image. After researching the topic, it seems to be the best solution for easily manipulating an HTML5 canvas element, and things drawn onto it, in an object-oriented way. I wanted to document some of my notes while researching the documentation ( much of the following information can be found on the <a href="http://fabricjs.com">fabric.js website</a> )</p>
+:ET
