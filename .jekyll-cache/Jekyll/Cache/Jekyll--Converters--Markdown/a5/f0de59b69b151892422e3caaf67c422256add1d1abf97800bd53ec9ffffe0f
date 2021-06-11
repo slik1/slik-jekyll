@@ -1,0 +1,119 @@
+I"�&<p>React is the last of the big 3 (Angular, Vue, React) that I just haven’t really had a chance to play with. In this post I go through the basics of one-way data flow.</p>
+
+<p>This post just goes through how to pass props and functions from a parent to child function component in React.</p>
+
+<p><em>The code examples are based on a Pluralsight tutorial I’m learning from, and take place in the playground sandbox at jscomplete.com</em></p>
+
+<h2 id="flow-data-from-parent-to-child">Flow data from parent to child</h2>
+
+<p>The following code snippet shows what it looks like (in the jsComplete playground at least) to have a parent function component named ‘App’ that contains a ‘Button’ and ‘Display’ component.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">Button</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+  <span class="k">return</span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick=</span><span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">onClickFunction</span><span class="si">}</span><span class="p">&gt;</span>
+    +1
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kd">function</span> <span class="nx">Display</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kd">function</span> <span class="nx">App</span><span class="p">(){</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">stateObject</span><span class="p">,</span> <span class="nx">updaterFunction</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">incrementCounter</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">updaterFunction</span><span class="p">(</span><span class="nx">stateObject</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">Button</span> <span class="na">onClickFunction=</span><span class="si">{</span><span class="nx">incrementCounter</span><span class="si">}</span><span class="p">/&gt;</span>
+      <span class="p">&lt;</span><span class="nc">Display</span> <span class="na">message=</span><span class="si">{</span><span class="nx">stateObject</span><span class="si">}</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+<span class="p">&lt;</span><span class="nc">App</span> <span class="p">/&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">mountNode</span><span class="dl">'</span><span class="p">),</span>
+<span class="p">);</span></code></pre></figure>
+
+<p>In the App component, we use a state object with React’s special function named useState() which returns two things:</p>
+
+<ul>
+  <li>state object (getter)</li>
+  <li>updater function (setter)</li>
+</ul>
+
+<p><br /></p>
+
+<p>We’re setting the initial value of the state object to a number by passing in the zero to it. Then we assign the results to constants using array destructuring. One for the state object, and the other for the updater function.</p>
+
+<p>The last constant we are settings is the incrementCounter which uses the updater function, passes in the state object (which we initially set to zero) and addes 1 to the value.</p>
+
+<h3>Explanation</h3>
+
+<p>Okay now the fun stuff.</p>
+
+<p>We are passing data from the App component (parent) to the Display component (child).</p>
+
+<p>The data is coming from the stateObject returned from useState(0), so the initial data value is zero.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx">  <span class="kd">const</span> <span class="p">[</span><span class="nx">stateObject</span><span class="p">,</span> <span class="nx">updaterFunction</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></code></pre></figure>
+
+<p>When we refernece the <Display> JSX element inside the parent App component, we are binding the value of stateObject to a prop we created called 'message' which we will be able to reference now from within the Display function declaration.</Display></p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx">  <span class="o">&lt;</span><span class="nx">Display</span> <span class="nx">message</span><span class="o">=</span><span class="p">{</span><span class="nx">stateObject</span><span class="p">}</span><span class="sr">/&gt;</span></code></pre></figure>
+
+<p>We use interpolation with curley braces {} and access the passed in props object, then the message key within that object. This equates to this: {props.message} inside the return statement within the Display component declaration.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">Display</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Mind blown yet?!</p>
+
+<p><br /></p>
+
+<h2 id="flow-behavior-from-parent-to-child">Flow behavior from parent to child</h2>
+
+<p>Let’s now pass some behavior from a parent component to a child component, which will also be able to be accessed via the props object that gets passed into every function component declaration. (Whether you use that props object or not!)</p>
+
+<p>First, take another look at the parent component (App):</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">App</span><span class="p">(){</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">stateObject</span><span class="p">,</span> <span class="nx">updaterFunction</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">incrementCounter</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">updaterFunction</span><span class="p">(</span><span class="nx">stateObject</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">Button</span> <span class="na">onClickFunction=</span><span class="si">{</span><span class="nx">incrementCounter</span><span class="si">}</span><span class="p">/&gt;</span>
+      <span class="p">&lt;</span><span class="nc">Display</span> <span class="na">message=</span><span class="si">{</span><span class="nx">stateObject</span><span class="si">}</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>In the parent component, when we call the Button JSX element, we create a prop called onClickFunction and bind that to the incrementCounter function we created in the parent component thus passing that behavior down into the child Button component where it can then use it.</p>
+
+<p><br /></p>
+
+<p>Look at the Button function component again:</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">Button</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+  <span class="k">return</span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick=</span><span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">onClickFunction</span><span class="si">}</span><span class="p">&gt;</span>
+    +1
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>In the function that is declaring the Button component, we take in that prop of onClickFunction and assign it to the click handler of onClick.</p>
+
+<p>Whoa.</p>
+
+<p>With React, the DOM just reacts to state change like butter.</p>
+:ET
