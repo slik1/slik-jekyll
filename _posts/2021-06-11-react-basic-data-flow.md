@@ -2,7 +2,7 @@
 layout: post
 title:  "React Basics - Data Flow"
 date:   2021-06-11 16:00:00 -0400
-categories: react props basics
+categories: react basics props
 ---
 
 React is the last of the big 3 (Angular, Vue, React) that I just haven't really had a chance to play with. In this post I go through the basics of one-way data flow.

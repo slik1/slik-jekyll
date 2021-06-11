@@ -8,7 +8,6 @@
 # Site settings
 # title: Build Cool Web Stuff
 title: G
-email: youremailaddress@gmail.com
 description: SLiK Blog
 baseurl: '' # the subpath of your site, e.g. /blog
 url: '' # the base hostname & protocol for your site
